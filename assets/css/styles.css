@@ -155,13 +155,23 @@ nav a[aria-current="page"] {
   text-decoration: underline;
   text-decoration-style: dashed;
   text-underline-offset: 4px;
+  padding: 4px 10px;
+  margin: -4px -10px;
+  border-radius: 999px;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 .contact-list a:hover,
+.contact-list a:focus-visible,
 .text-link:hover {
   color: var(--teal);
 }
+.contact-list a:hover,
+.contact-list a:focus-visible {
+  background: rgba(103, 213, 197, 0.12);
+  text-decoration-style: solid;
+}
 .content-section {
-  padding-top: 68px;
+  padding-top: 84px;
 }
 .section-heading {
   display: flex;
@@ -242,6 +252,18 @@ strong {
   color: var(--teal);
   font: 13px var(--mono);
   margin: 3px 0 0;
+}
+.experience h3,
+.experience strong {
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+.experience.is-illuminated h3 {
+  color: var(--green);
+  text-shadow: 0 0 12px rgba(130, 216, 157, 0.55);
+}
+.experience.is-illuminated strong {
+  color: var(--green);
+  text-shadow: 0 0 8px rgba(130, 216, 157, 0.4);
 }
 .project-card {
   display: flex;
@@ -336,8 +358,7 @@ strong {
     padding-left: 20px;
   }
   .experience-meta {
-    flex-direction: row;
-    gap: 8px;
+    gap: 2px;
   }
   .two-column {
     grid-template-columns: 1fr;
@@ -349,6 +370,15 @@ strong {
   }
   .skill-grid {
     grid-template-columns: 1fr;
+  }
+  .section-heading {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 6px;
+  }
+  .section-heading h2 {
+    order: -1;
   }
 }
 @media print {

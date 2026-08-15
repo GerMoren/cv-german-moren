@@ -33,4 +33,19 @@
     );
     window.addEventListener('resize', update);
   }
+
+  const experiences = document.querySelectorAll('.experience');
+  if (experiences.length && 'IntersectionObserver' in window) {
+    const illuminate = (target) => {
+      experiences.forEach((exp) => exp.classList.toggle('is-illuminated', exp === target));
+    };
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const active = entries.find((entry) => entry.isIntersecting);
+        if (active) illuminate(active.target);
+      },
+      { rootMargin: '-35% 0px -60% 0px', threshold: 0 }
+    );
+    experiences.forEach((exp) => observer.observe(exp));
+  }
 })();
