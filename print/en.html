@@ -5,20 +5,179 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>German Moren | Senior Backend Engineer</title>
   <style>
-    @page{size:A4;margin:12mm}*{box-sizing:border-box}body{color:#17202a;font:9.2pt/1.32 ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;margin:0}h1,h2,h3,p,ul{margin:0}a{color:inherit}.header{display:grid;grid-template-columns:1fr auto;gap:18px;border-bottom:2px solid #1f8f88;padding-bottom:9px}.identity{display:flex;gap:11px;align-items:flex-start}.logo{width:42px;height:42px;object-fit:cover;border-radius:5px}.name h1{font-size:25pt;letter-spacing:-.05em;line-height:1}.role{color:#9a6500;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:9.5pt;font-weight:bold;letter-spacing:.02em;text-transform:uppercase;margin-top:6px}.contact{text-align:right;color:#40505d;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:8.2pt;line-height:1.6}.contact a{text-decoration:none}.summary{border-bottom:1px solid #b8c1c8;padding:8px 0 9px}.summary p{font-size:9.2pt}.section{margin-top:9px}.section h2{border-bottom:1px solid #1f8f88;color:#9a6500;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:9.5pt;letter-spacing:.12em;margin-bottom:6px;padding-bottom:3px;text-transform:uppercase}.job{display:grid;grid-template-columns:100px 1fr;gap:8px;margin-bottom:6px}.dates{color:#1f8f88;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:8pt;font-weight:bold}.job h3{font-size:9.8pt}.title{color:#40505d;font-style:italic;font-size:8.5pt}.job ul{padding-left:14px}.job li{margin-bottom:2px}.project{display:grid;grid-template-columns:1fr auto;gap:10px}.project p,.skills{font-size:8.7pt}.project a{color:#1f8f88;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:8pt}.skills strong{color:#263746}@media print{a{text-decoration:none}}
+    @page{size:A4;margin:10mm}
+    *{box-sizing:border-box}
+    body{color:#17202a;font:8.5pt/1.18 ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;margin:0}
+    h1,h2,h3,p,ul{margin:0}
+    a{color:inherit}
+    .mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+
+    .header{display:grid;grid-template-columns:1fr auto;gap:18px;align-items:start;border-bottom:2px solid #1f8f88;padding-bottom:7px}
+    .identity{display:flex;gap:11px;align-items:flex-start}
+    .logo{width:40px;height:40px;object-fit:cover;border-radius:5px}
+    .name h1{font-size:21pt;letter-spacing:-.05em;line-height:1}
+    .role{color:#9a6500;font-size:9pt;font-weight:bold;letter-spacing:.02em;text-transform:uppercase;margin-top:4px}
+    .contact{text-align:right;color:#40505d;font-size:8pt;line-height:1.55}
+    .contact a{text-decoration:none}
+
+    .summary{font-size:8.3pt;color:#33424c;border-bottom:1px solid #dde3e6;padding:5px 0 5px;margin-top:2px}
+
+    .page-grid{display:grid;grid-template-columns:56mm 1fr;gap:9mm;margin-top:6px}
+
+    .sidebar{background:#eef7f6;border:1px solid #cfe4e1;border-radius:5px;padding:8px 11px}
+    .sidebar-block{margin-bottom:6px}
+    .sidebar-block:last-child{margin-bottom:0}
+    .sidebar h2{font-size:8pt;letter-spacing:.1em;text-transform:uppercase;color:#9a6500;border-bottom:1px solid #cfe4e1;padding-bottom:3px;margin-bottom:6px}
+    .skill-group{margin-bottom:5px}
+    .skill-group:last-child{margin-bottom:0}
+    .skill-group h3{font-size:7.3pt;letter-spacing:.05em;text-transform:uppercase;color:#1f8f88;margin-bottom:1px}
+    .skill-group p{font-size:7.9pt;color:#33424c;line-height:1.35}
+    .edu-item{margin-bottom:5px}
+    .edu-item:last-child{margin-bottom:0}
+    .edu-item h3{font-size:8.4pt;line-height:1.25}
+    .edu-item p{font-size:7.6pt;color:#40505d;margin-top:1px}
+    .edu-item time{font-size:7.2pt;color:#71808f}
+
+    .main-col .section{margin-bottom:4px}
+    .main-col .section:first-child{margin-top:0}
+    .section h2{font-size:9pt;letter-spacing:.12em;text-transform:uppercase;color:#9a6500;border-bottom:1px solid #1f8f88;padding-bottom:2px;margin-bottom:5px}
+
+    .timeline{position:relative;border-left:1px solid #cfe4e1;margin-left:3px}
+    .job{position:relative;padding:0 0 3px 13px;margin-left:-1px}
+    .job:before{content:"";position:absolute;left:-4px;top:3px;width:7px;height:7px;border-radius:50%;background:#fff;border:1.4px solid #1f8f88}
+    .job.current:before{background:#1f8f88;box-shadow:0 0 0 2px rgba(31,143,136,.18)}
+    .job .dates{color:#1f8f88;font-size:7.7pt;font-weight:bold;margin-bottom:1px}
+    .job h3{font-size:9.4pt;display:inline}
+    .job .title{color:#40505d;font-style:italic;font-size:8.2pt;margin-left:6px}
+    .job ul{padding-left:13px;margin-top:1px}
+    .job li{margin-bottom:1px;font-size:8.4pt}
+
+    .project{border-left:2px solid #1f8f88;padding-left:9px}
+    .project-head{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+    .project h3{font-size:9.4pt}
+    .project a{color:#1f8f88;font-size:7.8pt;white-space:nowrap}
+    .project p{font-size:8.2pt;color:#33424c;margin-top:1px}
+    .project ul{padding-left:13px;margin-top:1px}
+    .project li{margin-bottom:1px;font-size:8.2pt;color:#33424c}
+
+    @media print{a{text-decoration:none}}
   </style>
 </head>
 <body>
-  <header class="header"><div class="identity"><img class="logo" src="../assets/logo.webp" alt="German Moren monogram"><div class="name"><h1>German Moren</h1><p class="role">Senior Backend Engineer</p></div></div><p class="contact"><a href="mailto:morengerman91@gmail.com">✉ morengerman91@gmail.com</a><br><a href="https://www.linkedin.com/in/germanmoren/">in linkedin.com/in/germanmoren</a><br><a href="https://github.com/GerMoren">⌂ github.com/GerMoren</a><br>Entre Ríos, Argentina</p></header>
-  <section class="summary"><p>Backend engineer building dependable systems for commerce, SaaS, and operational platforms. Focused on Node.js, TypeScript, Go, AWS, event-driven and serverless architecture, search, observability, and developer enablement.</p></section>
-  <section class="section"><h2>Experience</h2>
-    <article class="job"><div class="dates">Jul 2026–Present</div><div><h3>Steplix</h3><p class="title">Backend Engineer</p><ul><li>Implemented backend components for serverless telecom and eSIM activation solutions with Go, AWS Lambda, Step Functions, and DynamoDB.</li><li>Adopted the Gentle AI ecosystem (Engram, SDD, custom skills/harnesses) for AI-assisted engineering workflows.</li></ul></div></article>
-    <article class="job"><div class="dates">Apr 2026–Jun 2026</div><div><h3>Cencosud</h3><p class="title">Senior Backend Developer</p><ul><li>Built <strong>cenco-pim-config</strong> with NestJS and hexagonal architecture for the Cenco PIM ecosystem.</li><li>Applied CQRS with MySQL writes and OpenSearch reads; defined Kubernetes deployments, container hardening, and GitHub Actions workflows.</li></ul></div></article>
-    <article class="job"><div class="dates">Dec 2025–Mar 2026</div><div><h3>Steplix</h3><p class="title">Backend Engineer · Client telecom platform</p><ul><li>Implemented state machines and monitoring (CloudWatch, X-Ray); built <strong>caap.aero</strong> in Next.js (Lighthouse 96/87/96/100) and the <strong>Mi Alarma X-28</strong> app in React Native (50k+ downloads).</li></ul></div></article>
-    <article class="job"><div class="dates">Jul 2021–Nov 2025</div><div><h3>Tiendamia</h3><p class="title">Backend / Full Stack Developer</p><ul><li>Migrated critical APIs from PHP/Magento to Node.js (~60% faster API response times) and integrated hybrid search with Amazon SageMaker and OpenSearch.</li><li>Applied CQRS, DocumentDB read replicas, RabbitMQ, Redis, and domain-driven design; built reusable Node.js packages.</li></ul></div></article>
-    <article class="job"><div class="dates">Jun 2020–Jul 2021</div><div><h3>Chiper</h3><p class="title">Full Stack Developer</p><ul><li>Built B2B commerce APIs and microservices with Node.js, TypeScript, NestJS, and React; supported GCP and Jenkins delivery.</li></ul></div></article>
-  </section>
-  <section class="section"><h2>Selected project</h2><div class="project"><div><h3>Junando</h3><p>AIOps alert correlation agent: hexagonal architecture, Redis fingerprint deduplication, swappable LLM provider (Gemini/Claude/OpenRouter), AWS CDK, Apache 2.0.</p></div><p><a href="https://github.com/GerMoren/junando">github.com/GerMoren/junando ↗</a></p></div></section>
-  <section class="section"><h2>Core skills</h2><p class="skills"><strong>Backend:</strong> Node.js, TypeScript, Go, NestJS, REST APIs, microservices, CQRS, DDD · <strong>Cloud:</strong> AWS Lambda, SQS, Step Functions, API Gateway, DynamoDB, Kubernetes, GitHub Actions, GCP · <strong>Data:</strong> OpenSearch, DocumentDB, MySQL, PostgreSQL, Redis, RabbitMQ · <strong>Quality:</strong> Jest, Mocha, SonarQube, CloudWatch, X-Ray, Grafana, Trivy · <strong>AI &amp; agents:</strong> LLM integrations, Gentle AI (Engram, SDD), Confluence, Rovo</p></section>
+  <header class="header">
+    <div class="identity">
+      <img class="logo" src="../assets/logo.webp" alt="German Moren monogram">
+      <div class="name">
+        <h1>German Moren</h1>
+        <p class="role mono">Senior Backend Engineer</p>
+      </div>
+    </div>
+    <p class="contact mono">
+      <a href="mailto:morengerman91@gmail.com">✉ morengerman91@gmail.com</a><br>
+      <a href="https://www.linkedin.com/in/germanmoren/">in linkedin.com/in/germanmoren</a><br>
+      <a href="https://github.com/GerMoren">⌂ github.com/GerMoren</a><br>
+      Entre Ríos, Argentina
+    </p>
+  </header>
+
+  <p class="summary">I build dependable backend systems for commerce, SaaS, and operational platforms, with a focus on event-driven and serverless architecture, search, and observability. Lately, I've also been building AI agent systems — from Junando, an open-source alert-correlation agent, to AI-assisted engineering workflows in my day-to-day work.</p>
+
+  <div class="page-grid">
+    <aside class="sidebar">
+      <div class="sidebar-block">
+        <h2 class="mono">Core skills</h2>
+        <div class="skill-group"><h3 class="mono">Backend</h3><p>Node.js, TypeScript, Go, NestJS, REST APIs, microservices, CQRS, DDD</p></div>
+        <div class="skill-group"><h3 class="mono">Cloud &amp; delivery</h3><p>AWS Lambda, SQS, Step Functions, API Gateway, DynamoDB, Kubernetes, GitHub Actions, GCP</p></div>
+        <div class="skill-group"><h3 class="mono">Data &amp; search</h3><p>OpenSearch, DocumentDB, MySQL, PostgreSQL, Redis, RabbitMQ</p></div>
+        <div class="skill-group"><h3 class="mono">Quality</h3><p>Jest, SonarQube, CloudWatch, X-Ray, Grafana, Trivy</p></div>
+        <div class="skill-group"><h3 class="mono">AI &amp; agent tooling</h3><p>LLM integrations (Claude, Gemini, OpenRouter), agent orchestration, Confluence, Rovo</p></div>
+        <div class="skill-group"><h3 class="mono">Gentle AI ecosystem</h3><p>Engram (persistent memory), Spec-Driven Development, custom skills &amp; harnesses, Orca, multi-agent orchestration</p></div>
+      </div>
+      <div class="sidebar-block">
+        <h2 class="mono">Education</h2>
+        <div class="edu-item">
+          <h3>Civil Engineering</h3>
+          <p>National Technological University (UTN), Argentina</p>
+          <time>2011–2019</time>
+        </div>
+        <div class="edu-item">
+          <h3>Software Development Program</h3>
+          <p>Henry</p>
+          <time>2020</time>
+        </div>
+      </div>
+    </aside>
+
+    <div class="main-col">
+      <section class="section">
+        <h2 class="mono">Experience</h2>
+        <div class="timeline">
+          <article class="job current">
+            <div class="dates mono">Jul 2026–Present</div>
+            <h3>Steplix</h3><span class="title">Senior Backend Engineer</span>
+            <ul>
+              <li>Implemented backend components for a telecom client's serverless eSIM activation solution with Go and AWS services (Lambda, Step Functions, DynamoDB, among others), along with its delivery pipeline.</li>
+              <li>Co-designed state machines for activation workflows and implemented their integration.</li>
+              <li>Migrated technical documentation from Drive to Confluence for better indexing by Rovo and Claude Code embeddings, and created language-agnostic skills for AI-assisted engineering workflows.</li>
+              <li>Found and fixed a bug in the provisioning service's Go migration library, flagged via Sentry.</li>
+            </ul>
+          </article>
+          <article class="job">
+            <div class="dates mono">Apr 2026–Jun 2026</div>
+            <h3>Cencosud</h3><span class="title">Senior Backend Engineer</span>
+            <ul>
+              <li>Helped build <strong>cenco-pim-config</strong> with NestJS and hexagonal architecture for the Cenco PIM ecosystem.</li>
+              <li>Implemented CQRS with MySQL writes and denormalized OpenSearch reads for catalog workloads, plus an SQS-to-OpenSearch error indexing pipeline with rotating indices and ISM policies.</li>
+              <li>Defined Kubernetes deployments and container hardening after Trivy audits; administered GitHub Actions workflows on self-hosted autoscaling runners.</li>
+              <li>Built testing harnesses and quality tooling used across the platform team's delivery.</li>
+            </ul>
+          </article>
+          <article class="job">
+            <div class="dates mono">Dec 2025–Mar 2026</div>
+            <h3>Steplix</h3><span class="title">Senior Backend Engineer</span>
+            <ul>
+              <li>Worked in a support role focused mainly on observability — monitoring and alerting with CloudWatch and X-Ray for a telecom eSIM activation platform.</li>
+              <li>Migrated <strong>caap.aero</strong> (Corporación América Airports) from WordPress to Next.js 16 — Lighthouse scores of 96 Performance, 87 Accessibility, 96 Best Practices, 100 SEO.</li>
+              <li>Maintained the <strong>Mi Alarma X-28</strong> mobile app (React Native) — 50k+ downloads on iOS and Android.</li>
+            </ul>
+          </article>
+          <article class="job">
+            <div class="dates mono">Jul 2021–Nov 2025</div>
+            <h3>Tiendamia</h3><span class="title">Senior Backend Engineer</span>
+            <ul>
+              <li>Migrated critical backend APIs from PHP/Magento to Node.js, improving API response times by ~60%.</li>
+              <li>Integrated the backend with Amazon SageMaker and OpenSearch for hybrid search, including vector generation and storage, and selecting traditional or semantic search based on query length.</li>
+              <li>Implemented CQRS with DocumentDB read replicas, RabbitMQ event messaging, Redis caching segmented by market, and domain-driven design.</li>
+              <li>Published reusable Node.js packages to npm (a database connection client, a logging utility) used across multiple internal projects.</li>
+            </ul>
+          </article>
+          <article class="job">
+            <div class="dates mono">Jun 2020–Jul 2021</div>
+            <h3>Chiper</h3><span class="title">Full Stack Developer</span>
+            <ul>
+              <li>Built B2B commerce APIs and microservices with Node.js, TypeScript, NestJS, and React; supported GCP and Jenkins delivery.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2 class="mono">Selected project</h2>
+        <div class="project">
+          <div class="project-head">
+            <h3>Junando</h3>
+            <a class="mono" href="https://github.com/GerMoren/junando">github.com/GerMoren/junando ↗</a>
+          </div>
+          <p>AIOps alert correlation agent that groups and enriches monitoring alerts with LLM analysis, delivering actionable incident context to Slack or Teams.</p>
+          <ul>
+            <li>Hexagonal architecture: a webhook Lambda validates and queues events; a worker Lambda runs the full enrichment pipeline.</li>
+            <li>Alert deduplication by fingerprint with Redis, dead-letter queues, and infrastructure as code with AWS CDK.</li>
+            <li>Swappable LLM provider (Gemini, Claude, OpenRouter) behind a ports-and-adapters design — provider changes in minutes.</li>
+            <li>TypeScript monorepo, Vitest test suite, Docker/Kubernetes support with Helm charts, Apache 2.0 licensed.</li>
+          </ul>
+        </div>
+      </section>
+    </div>
+  </div>
 </body>
 </html>
